@@ -1,68 +1,72 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
+import Button from "../../components/button";
+import Layout from "../../components/layout";
 
-const ItemDetail : NextPage = () => {
-    return (
-        <div className="p-5">
-      <div>
-        <div className="w-full h-60 bg-gray-400"/>
-        <div className="py-4 flex items-center space-x-3 border-b border-gray-300">
-          <div className="w-10 h-10 rounded-full bg-gray-400"/>
-          <div>
-            <p className="text-[14px]">Steve Jebs</p>
-            <p className="text-xs text-gray-500">View profile &rarr;</p>
+const ItemDetail: NextPage = () => {
+  return (
+    <Layout canGoBack>
+      <div className="px-4  py-4">
+        <div className="mb-8">
+          <div className="h-96 bg-slate-300" />
+          <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
+            <div className="w-12 h-12 rounded-full bg-slate-300" />
+            <div>
+              <p className="text-sm font-medium text-gray-700">Steve Jebs</p>
+              <p className="text-xs font-medium text-gray-500">
+                View profile &rarr;
+              </p>
+            </div>
+          </div>
+          <div className="mt-5">
+            <h1 className="text-3xl font-bold text-gray-900">Galaxy S50</h1>
+            <span className="text-2xl block mt-3 text-gray-900">$140</span>
+            <p className=" my-6 text-gray-700">
+              My money&apos;s in that office, right? If she start giving me some
+              bullshit about it ain&apos;t there, and we got to go someplace
+              else and get it, I&apos;m gonna shoot you in the head then and
+              there. Then I&apos;m gonna shoot that bitch in the kneecaps, find
+              out where my goddamn money is. She gonna tell me too. Hey, look at
+              me when I&apos;m talking to you, motherfucker. You listen: we go
+              in there, and that ni**a Winston or anybody else is in there, you
+              the first motherfucker to get shot. You understand?
+            </p>
+            <div className="flex items-center justify-between space-x-2">
+              <Button large text="Talk to seller" />
+              <button className="p-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500">
+                <svg
+                  className="h-6 w-6 "
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
         <div>
-          <h1 className="pt-6 pb-1 font-semibold text-2xl">Galaxy S50</h1>
-          <p className="text-xl pb-6 pt-1">$140</p>
-          <p>
-            My money&apos;s in that office, right? If she start giving me some
-            bullshit about it ain&apos;t there, and we got to go someplace else
-            and get it, I&apos;m gonna shoot you in the head then and there.
-            Then I&apos;m gonna shoot that bitch in the kneecaps, find out where
-            my goddamn money is. She gonna tell me too. Hey, look at me when
-            I&apos;m talking to you, motherfucker. You listen: we go in there,
-            and that ni**a Winston or anybody else is in there, you the first
-            motherfucker to get shot. You understand?
-          </p>
-          <div className="flex space-x-2 my-6">
-            <button className="w-full bg-orange-400 py-2.5 text-white rounded-md cursor-pointer hover:bg-orange-500 shadow-md">Talk to seller</button>
-            <button className="text-red-600">
-              <svg
-                className="h-6 w-6 "
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-            </button>
+          <h2 className="text-2xl font-bold text-gray-900">Similar items</h2>
+          <div className=" mt-6 grid grid-cols-2 gap-4">
+            {[1, 2, 3, 4, 5, 6].map((_, i) => (
+              <div key={i}>
+                <div className="h-56 w-full mb-4 bg-slate-300" />
+                <h3 className="text-gray-700 -mb-1">Galaxy S60</h3>
+                <span className="text-sm font-medium text-gray-900">$6</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div>
-        <h2 className="text-2xl font-semibold mb-4">Similar items</h2>
-        <div className="grid gap-2 grid-cols-2">
-          {[1, 2, 3, 4, 5, 6].map((_, i) => (
-            <div
-                key={i}
-            >
-                <div className="w-full h-44 bg-gray-400"/>
-                <h3 className="pt-3">Galaxy S60</h3>
-                <p className="text-sm font-semibold pb-1">$6</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-    );
-}
+    </Layout>
+  );
+};
 
 export default ItemDetail;
